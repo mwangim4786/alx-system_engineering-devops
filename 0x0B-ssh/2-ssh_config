@@ -1,0 +1,10 @@
+# ssh_config - connect to a server without typing a password.
+
+Host *
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
+    HostName 54.84.215.48
+    User ubuntu
