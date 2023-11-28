@@ -12,4 +12,5 @@ echo "Hello World!" | tee index.html
 nginx -t
 
 #Restart and reload
-service nginx reload
+service nginx start
+
