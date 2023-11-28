@@ -3,7 +3,7 @@
 
 apt-get update
 apt-get install nginx
-ufw 'Nginx HTTP'
+ufw allow 'Nginx HTTP'
 
 #create index.html with Hello World! inside
 echo "Hello World!" | tee index.html
