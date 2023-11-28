@@ -2,7 +2,7 @@
 #commands to install nginx server
 
 sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt-get install nginx
 sudo ufw 'Nginx HTTP'
 
 #create index.html with Hello World! inside
