@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#commands to install nginx server
+
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo ufw 'Nginx HTTP'
+
+#create index.html with Hello World! inside
+echo "Hello World!" | sudo tee index.html
+
+#test nginx configurations
+sudo nginx -t
+
+#Restart and reload
+sudo service nginx restart
+sudo service nginx reload
