@@ -2,15 +2,15 @@
 #commands to install nginx server
 
 apt-get update
-apt-get install nginx
+apt-get install -y nginx
 ufw allow 'Nginx HTTP'
 
 #create index.html with Hello World! inside
-echo "Hello World!" | tee index.html
+echo "Hello World!" | tee /var/www/html/index.html
 
 #test nginx configurations
 nginx -t
 
-#Restart and reload
+#Start nginx
 service nginx start
 
