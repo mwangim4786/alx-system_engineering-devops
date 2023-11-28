@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#Configure your Nginx server so that /redirect_me is redirecting to another page.
+
+apt-get update
+apt-get install -y nginx
+
+#create index.html with Hello World! inside
+echo "Hello World!" | sudo tee index.html
+
+replace_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com permanent;\n"
+
+sed -i "s/server_name _;/$replace_string/" /etc/nginx/sites-enabled/default
+
+#test nginx configurations
+nginx -t
+
+#Restart nginx
+service nginx restart
