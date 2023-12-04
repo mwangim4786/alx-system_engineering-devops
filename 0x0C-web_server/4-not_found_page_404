@@ -5,7 +5,7 @@ apt-get update
 apt-get install -y nginx
 
 #create index.html with Hello World! inside
-echo "Hello World!" | sudo tee index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
 replace_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com permanent;\n"
 
