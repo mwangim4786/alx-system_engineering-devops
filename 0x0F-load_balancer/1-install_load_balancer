@@ -1,4 +1,4 @@
-# !/usr/bin/env bash
+#!/usr/bin/env bash
 # Create a script to install and configure HAProxy on lb-01 server
 # Configure HAProxy to send traffic to web-01 and web-02 servers
 # Distribute requests using a roundrobin algorithm
@@ -23,7 +23,7 @@ backend web_servers
 sudo echo "$cfg_server" | sudo tee -a /etc/haproxy/haproxy.cfg
 
 # enable haproxy to be started by init script
-sudo sed -i "8 a\ENABLED=1\n" /etc/haproxy/haproxy.cfg
+sudo sed -i "8 a\ENABLED=1\n" /etc/default/haproxy
 
 # Testing the HAproxy configuration file
 sudo haproxy -c -f /etc/haproxy/haproxy.cfg
