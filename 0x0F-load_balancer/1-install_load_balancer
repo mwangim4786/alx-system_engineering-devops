@@ -10,11 +10,11 @@ sudo apt-get install haproxy -y
 # edit config file
 cfg_server=\
 "
-frontend mk_frontend
+frontend load_balancer
         bind *:80
         mode http
-        default_backend mk_backend
-backend mk_backend
+        default_backend web_servers
+backend web_servers
         balance roundrobin
         server 334384-web-01 54.89.194.112:80 check
         server 334384-web-02 54.234.34.132:80 check
@@ -29,4 +29,4 @@ sudo echo "ENABLED=1" | sudo tee -a /etc/haproxy/haproxy.cfg
 sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 
 # Restart the Nginx service
-sudo service haproxy restart
+sudo service haproxy start
