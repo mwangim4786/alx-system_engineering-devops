@@ -7,5 +7,5 @@ Host *
     SendEnv LANG LC_*
     HashKnownHosts yes
     GSSAPIAuthentication yes
-    HostName 54.157.141.41
+    HostName 3.86.18.187
     User ubuntu
