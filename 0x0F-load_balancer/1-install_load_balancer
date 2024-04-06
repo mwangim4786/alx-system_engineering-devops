@@ -16,8 +16,8 @@ frontend load_balancer
         default_backend web_servers
 backend web_servers
         balance roundrobin
-        server 334384-web-01 54.89.194.112:80 check
-        server 334384-web-02 54.234.34.132:80 check
+        server 334384-web-01 100.26.132.172:80 check
+        server 334384-web-02 100.25.132.101:80 check
 "
 
 sudo echo "$cfg_server" | sudo tee -a /etc/haproxy/haproxy.cfg
