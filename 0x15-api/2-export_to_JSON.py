@@ -17,8 +17,6 @@ if __name__ == "__main__":
     # Get employee ID from the command-line argument
     user_id = sys.argv[1]
 
-
-
     # Get user info using the employee ID
     user = requests.get(url + "users/{}".format(user_id)).json()
     username = user.get("username")
@@ -32,12 +30,10 @@ if __name__ == "__main__":
 
     for to_do in todos:
         data_to_export[user_id].append({"task": to_do.get("title"),
-	                                "completed": to_do.get("completed"),
-	                                "username": username})
+                                        "completed": to_do.get("completed"),
+                                        "username": username})
 
     #data_to_export[user_id].append(tasks_info)
-
     # Write the data to a JSON file with employee ID as the filename
     with open("{}.json".format(user_id), "w") as jsonfile:
         dump(data_to_export, jsonfile, indent=4)
-
