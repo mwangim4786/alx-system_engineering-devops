@@ -33,3 +33,4 @@ if __name__ == "__main__":
         for to_do in todos:
             writer.writerow([user_id, username, to_do.get("completed"), 
                             to_do.get("title")])
+
