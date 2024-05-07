@@ -6,8 +6,8 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """Request number of subscribers of a given subreddit
-    from Reddit API
+    """Request number of subscribers of a given
+    subreddit from Reddit API
     """
     # set custom user-agent
     user_agent = '0-subs'
