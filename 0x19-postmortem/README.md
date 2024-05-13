@@ -1,26 +1,18 @@
 PostMortem
-Nginx issue leading to Bad Gateway error (HTTP 502)
-![Postmortem humour](https://github.com/abkalkaled/alx-system_engineering-devops/blob/master/0x19-postmortem/postmortem.jpg?raw=true)
+Deployment leads to error 404.
+![Postmortem image](https://github.com/mwangim4786/alx-system_engineering-devops/blob/master/0x19-postmortem/755014.png?raw=true)
 
 Issue Summary
-
-For a duration of 1 hour and 16 minutes on May 12, 2024 between 08:03 UTC and 09:19 UTC, our web server was down due to Nginx configuration issue resulting in a downtime affection and impacting 100% of users
+On May 10, 2024 between 14:00 hrs EAT and 15:30 hrs EAT, our sales and marketing departments experienced 404 errors on their portals. These accounted for 25% of the staff in the company that got these errors once logged on to their portals. These failures were triggered by a newly completed deployment on the servers. The staff from these departments reported the incident minutes after the deployment was concluded.
 
 Timeline
-
-08:03 UTC: HTTP 502 (Bad Gateway) error was detected from a monitoring alert received by the staff on call
-08:05 UTC: alert was escalated to the engineer by the staff on call of investigation
-08:11 UTC: Initial assumption was a possible content delivery network (CDN)  issue, proper caching was ensured and CDN server status confirmed okay
-08:42 UTC: a further investigation shows server software issue in the apache2.conf configuration file
-09:19 UTC: issue resolved by correcting the bogus addition in the configuration file and service was restored
+At 13:50 hrs EAT on May 10 2024, new changes were introduced to the Nginx server hosting the company's website. At 14:00 hrs EAT the technical department was alerted about 404 errors experienced by sales and marketing departments.
+The engineers attributed these errors to the changes made to the system. The system was restored to the previous working state by restoring the backup and investigations into the matter was launched.
 
 Root Cause and Resolution
+The cause of the 404 errors was a typo error on the clients directory that points the url to the clients files. These typos were carried forward to the servers after deployment.
+Necessary changes were made locally to reflect the correct paths for the urls and deployment was redone.
 
-The cause of the 502 error is a conflict in the .htaccess files and apache2.conf
-The apache configuration was tested by checking error logs to fix conflict with .htaccess files
+Corrective and preventative measures
+Scripts were drawn and tested to always determine consistency of the naming of folders and files both locally and remotely. 
 
-Corrective and Preventive measures
-
-Regular configuration review of .htaccess and apache2.conf files for conflicts and syntax error
-Test and verify configuration to verify functionality
-Use of version control to monitor changes
