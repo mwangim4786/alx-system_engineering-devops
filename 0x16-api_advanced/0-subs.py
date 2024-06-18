@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     """
     # set custom user-agent
     user_agent = 'Mozilla/5.0'
-    url = 'https://www.reddit.com/r/{}.json'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
 
     # custom user-agent avoids request limit
     headers = {'User-Agent': user_agent}
